@@ -19,25 +19,25 @@ session = HTMLSession()
 logger = mylog()
 
 
-# 阿里云mysql
-conn = MySQLdb.connect(
-    host='39.108.157.74',
-    port=3306,
-    user='root',
-    password='00genius00',
-    database='mzitu',
-    charset='utf8',
-)
-
-# # 本地mysql
+# # 阿里云mysql
 # conn = MySQLdb.connect(
-#     host='127.0.0.1',
+#     host='39.108.157.74',
 #     port=3306,
 #     user='root',
 #     password='00genius00',
 #     database='mzitu',
 #     charset='utf8',
 # )
+
+# 本地mysql
+conn = MySQLdb.connect(
+    host='127.0.0.1',
+    port=3306,
+    user='root',
+    password='00genius00',
+    database='mzitu',
+    charset='utf8',
+)
 
 cursor = conn.cursor()
 
@@ -100,4 +100,4 @@ for i in range(len(data)):
     title, pic_id, page_count, clicks = data.loc[
         i, ['title', 'pic_id', 'page_count', 'clicks']]
     main_spider(title, pic_id, page_count, clicks,
-                '/home/ydzhang/spider_download/')
+                '/home/root/spider_download/')
